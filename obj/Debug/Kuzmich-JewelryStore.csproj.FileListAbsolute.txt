@@ -1,4 +1,3 @@
-C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.csprojAssemblyReference.cache
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.csproj.CoreCompileInputs.cache
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\bin\Kuzmich-JewelryStore.dll.config
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\bin\Kuzmich-JewelryStore.dll
@@ -71,3 +70,4 @@ C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\bin\Micros
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.csproj.CopyComplete
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.dll
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.pdb
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.csprojAssemblyReference.cache

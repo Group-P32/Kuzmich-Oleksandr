@@ -3,27 +3,26 @@
     ViewBag.Title = "Ювелірний магазин";
 }
 
-<div>
-    <h3>Каталог прикрас</h3>
-    <table>
-        <tr class="header">
-            <td><p>Назва</p></td>
-            <td><p>Тип</p></td>
-            <td><p>Матеріал</p></td>
-            <td><p>Вага (г)</p></td>
-            <td><p>Ціна (грн)</p></td>
-            <td></td>
-        </tr>
-        @foreach (var j in ViewBag.Jewelries)
-        {
-            <tr>
-                <td><p>@j.Name</p></td>
-                <td><p>@j.Type</p></td>
-                <td><p>@j.Material</p></td>
-                <td><p>@j.Weight</p></td>
-                <td><p>@j.Price</p></td>
-                <td><p><a href="/Home/Buy/@j.Id">Оформити покупку</a></p></td>
-            </tr>
-        }
-    </table>
+<div class="jumbotron">
+    <h1>Ювелірний магазин</h1>
+    <p>Вишукані прикраси з золота, срібла та коштовного каміння</p>
+    <p>@Html.ActionLink("Переглянути каталог", "Index", "Jewelry")</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Каталог прикрас</h2>
+        <p>Перегляньте наш широкий асортимент ювелірних виробів.</p>
+        <p>@Html.ActionLink("Каталог →", "Index", "Jewelry")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Категорії</h2>
+        <p>Каблучки, намисто, браслети, сережки та багато іншого.</p>
+        <p>@Html.ActionLink("Категорії →", "Index", "Category")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Придбати</h2>
+        <p>Оберіть прикрасу та оформіть замовлення.</p>
+        <p>@Html.ActionLink("Замовити →", "Index", "Jewelry")</p>
+    </div>
 </div>

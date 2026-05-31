@@ -1,0 +1,37 @@
+﻿@model JewelryStore.Models.Category
+@{
+    ViewBag.Title = "Деталі категорії";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Деталі категорії</h2>
+
+<div class="details-card">
+    <table class="jewelry-table">
+        <tr>
+            <th>Назва</th>
+            <td>@Html.DisplayFor(m => m.Name)</td>
+        </tr>
+        <tr>
+            <th>Опис</th>
+            <td>@Html.DisplayFor(m => m.Description)</td>
+        </tr>
+        <tr>
+            <th>Прикраси в категорії</th>
+            <td>
+                <ul>
+                    @foreach (var item in Model.Jewelries)
+                    {
+                        <li>@item.Name — @item.Material (@item.Price грн)</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br />
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Повернутися до категорій", "Index")
+</p>

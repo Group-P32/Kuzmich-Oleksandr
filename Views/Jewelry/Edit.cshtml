@@ -1,39 +1,43 @@
 ﻿@model JewelryStore.Models.Jewelry
 @{
+    ViewBag.Title = "Редагування прикраси";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Редагувати прикрасу";
 }
 
-<h2>Редагувати прикрасу</h2>
+<h2>Редагування прикраси</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(m => m.Id)
-    <p>
-        @Html.LabelFor(m => m.Name, "Назва")
-        <br />
-        @Html.EditorFor(m => m.Name)
-    </p>
-    <p>
-        @Html.LabelFor(m => m.Type, "Тип")
-        <br />
-        @Html.EditorFor(m => m.Type)
-    </p>
-    <p>
-        @Html.LabelFor(m => m.Material, "Матеріал")
-        <br />
-        @Html.EditorFor(m => m.Material)
-    </p>
-    <p>
-        @Html.LabelFor(m => m.Weight, "Вага (г)")
-        <br />
-        @Html.EditorFor(m => m.Weight)
-    </p>
-    <p>
-        @Html.LabelFor(m => m.Price, "Ціна (грн)")
-        <br />
-        @Html.EditorFor(m => m.Price)
-    </p>
-    <p><input type="submit" value="Зберегти" /></p>
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Прикраса</legend>
+
+        @Html.HiddenFor(m => m.Id)
+
+        <p>
+            Назва прикраси<br />
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+        <p>
+            Матеріал<br />
+            @Html.EditorFor(m => m.Material)
+            @Html.ValidationMessageFor(m => m.Material)
+        </p>
+        <p>
+            Ціна (грн)<br />
+            @Html.EditorFor(m => m.Price)
+        </p>
+        <p>
+            Категорія<br />
+            @Html.DropDownList("CategoryId", ViewBag.CategoryId as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="Зберегти" />
+        </p>
+    </fieldset>
 }
-@Html.ActionLink("Назад до списку", "Index")
+
+<div>
+    @Html.ActionLink("Повернутися до каталогу", "Index")
+</div>

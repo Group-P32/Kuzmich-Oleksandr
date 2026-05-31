@@ -1,0 +1,31 @@
+﻿@model JewelryStore.Models.Category
+@{
+    ViewBag.Title = "Додати категорію";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Додати категорію</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Категорія</legend>
+        <p>
+            Назва<br />
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+        <p>
+            Опис<br />
+            @Html.EditorFor(m => m.Description)
+        </p>
+        <p>
+            <input type="submit" value="Додати" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Повернутися до категорій", "Index")
+</div>

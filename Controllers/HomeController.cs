@@ -26,8 +26,10 @@ namespace Kuzmich_JewelryStore.Controllers
         // перейти на головну сторінку: localhost:XXXXX/Home
         // і натиснути "Оформити покупку" навпроти товару
         [HttpGet]
-        public ActionResult Buy(int id)
+        public ActionResult Buy(int? id)
         {
+            if (id == null)
+                return RedirectToAction("Index", "Jewelry");
             ViewBag.JewelryId = id;
             return View();
         }

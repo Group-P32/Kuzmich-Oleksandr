@@ -1,34 +1,38 @@
 ﻿@model IEnumerable<JewelryStore.Models.Jewelry>
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Каталог прикрас";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Каталог прикрас</h2>
-<p>@Html.ActionLink("Додати прикрасу", "Create")</p>
 
-<table>
-    <tr class="header">
-        <td>Назва</td>
-        <td>Тип</td>
-        <td>Матеріал</td>
-        <td>Вага (г)</td>
-        <td>Ціна (грн)</td>
-        <td></td>
+<p>
+    @Html.ActionLink("Додати прикрасу", "Create", null, new { @class = "btn btn-gold" })
+    @Html.ActionLink("Категорії", "Index", "Category", null, new { @class = "btn btn-outline-gold" })
+</p>
+
+<table class="jewelry-table">
+    <tr>
+        <th>Назва</th>
+        <th>Матеріал</th>
+        <th>Ціна (грн)</th>
+        <th>Категорія</th>
+        <th>Дії</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Name)</td>
-            <td>@Html.DisplayFor(modelItem => item.Type)</td>
-            <td>@Html.DisplayFor(modelItem => item.Material)</td>
-            <td>@Html.DisplayFor(modelItem => item.Weight)</td>
-            <td>@Html.DisplayFor(modelItem => item.Price)</td>
-            <td>
-                @Html.ActionLink("Редагувати", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Деталі", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Купити", "Buy", "Home", new { id = item.Id }, null) |
+            @Html.ActionLink("Деталі", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Редагувати", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
+        </td>
+        <td>@Html.DisplayFor(m => item.Name)</td>
+        <td>@Html.DisplayFor(m => item.Material)</td>
+        <td>@Html.DisplayFor(m => item.Price)</td>
+        <td>@Html.DisplayFor(m => item.Category.Name)</td>
+
+    </tr>
     }
 </table>

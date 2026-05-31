@@ -1,25 +1,20 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace JewelryStore.Models
 {
     public class Jewelry
     {
-        // ID товару
         public int Id { get; set; }
 
-        // Назва прикраси
-        public string Name { get; set; }
+        [Required]
+        public string Name { get; set; }        // Назва прикраси
 
-        // Тип (каблучка, браслет, намисто...)
-        public string Type { get; set; }
+        [Required]
+        public string Material { get; set; }    // Матеріал
 
-        // Матеріал (золото, срібло...)
-        public string Material { get; set; }
+        public decimal Price { get; set; }      // Ціна
 
-        // Вага в грамах
-        public double Weight { get; set; }
-
-        // Ціна в гривнях
-        public decimal Price { get; set; }
+        public int? CategoryId { get; set; }    // Зовнішній ключ
+        public Category Category { get; set; }  // Навігаційна властивість
     }
 }
