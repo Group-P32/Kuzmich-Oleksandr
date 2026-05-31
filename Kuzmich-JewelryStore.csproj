@@ -111,6 +111,7 @@
     <Compile Include="Models\Jewelry.cs" />
     <Compile Include="Models\JewelryContext.cs" />
     <Compile Include="Models\JewelryDbInitializer.cs" />
+    <Compile Include="Models\JewelryListViewModel.cs" />
     <Compile Include="Models\Purchase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,10 +1,11 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using JewelryStore.Models;
-
 namespace Kuzmich_JewelryStore.Controllers
 {
     public class JewelryController : Controller
@@ -12,10 +13,35 @@ namespace Kuzmich_JewelryStore.Controllers
         private JewelryContext db = new JewelryContext();
 
         // GET: Jewelry
-        public ActionResult Index()
+        public ActionResult Index(int? category, string material)
         {
-            var jewelries = db.Jewelries.Include(j => j.Category);
-            return View(jewelries.ToList());
+            IQueryable<Jewelry> jewelries = db.Jewelries.Include(j => j.Category);
+
+            if (category != null && category != 0)
+            {
+                jewelries = jewelries.Where(j => j.CategoryId == category);
+            }
+
+            if (!String.IsNullOrEmpty(material) && !material.Equals("Всі"))
+            {
+                jewelries = jewelries.Where(j => j.Material == material);
+            }
+
+            List<Category> categories = db.Categories.ToList();
+            categories.Insert(0, new Category { Name = "Всі", Id = 0 });
+
+            JewelryListViewModel viewModel = new JewelryListViewModel
+            {
+                Jewelries = jewelries.ToList(),
+                Categories = new SelectList(categories, "Id", "Name"),
+                Materials = new SelectList(
+    new[] { "Всі" }.Concat(
+        db.Jewelries.Select(j => j.Material).Distinct().ToList()
+    )
+)
+            };
+
+            return View(viewModel);
         }
 
         // GET: Jewelry/Details/5
