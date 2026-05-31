@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Routing;
+using JewelryStore.Models;
 
 namespace Kuzmich_JewelryStore
 {
@@ -11,6 +10,7 @@ namespace Kuzmich_JewelryStore
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new JewelryDbInitializer());
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
