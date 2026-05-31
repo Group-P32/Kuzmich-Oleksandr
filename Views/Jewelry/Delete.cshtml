@@ -1,0 +1,22 @@
+﻿@model JewelryStore.Models.Jewelry
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Видалити прикрасу";
+}
+
+<h2>Видалити прикрасу?</h2>
+
+<table>
+    <tr><td class="header">Назва</td><td>@Html.DisplayFor(m => m.Name)</td></tr>
+    <tr><td class="header">Тип</td><td>@Html.DisplayFor(m => m.Type)</td></tr>
+    <tr><td class="header">Матеріал</td><td>@Html.DisplayFor(m => m.Material)</td></tr>
+    <tr><td class="header">Вага (г)</td><td>@Html.DisplayFor(m => m.Weight)</td></tr>
+    <tr><td class="header">Ціна (грн)</td><td>@Html.DisplayFor(m => m.Price)</td></tr>
+</table>
+
+<br />
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Видалити" />
+}
+@Html.ActionLink("Назад до списку", "Index")
