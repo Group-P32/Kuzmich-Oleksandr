@@ -26,3 +26,36 @@
         <p>@Html.ActionLink("Замовити →", "Index", "Jewelry")</p>
     </div>
 </div>
+
+<hr />
+
+<div class="search-section">
+    <h2>Пошук прикрас</h2>
+    <p>Введіть назву прикраси або матеріал для пошуку</p>
+
+    @using (Ajax.BeginForm("JewelrySearch", "Home", new AjaxOptions
+    {
+        UpdateTargetId = "search-results",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST",
+        LoadingElementId = "search-loading"
+    }))
+    {
+        <div class="search-box">
+            <input type="text" name="query" class="search-input"
+                   placeholder="Наприклад: Золото, Срібло, Каблучка..." />
+            <input type="submit" value="Шукати" class="search-btn" />
+        </div>
+    }
+
+    <div id="search-loading" style="display:none;">
+        <p>Пошук...</p>
+    </div>
+
+    <div id="search-results"></div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

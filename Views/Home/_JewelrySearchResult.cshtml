@@ -1,0 +1,27 @@
+﻿@model IEnumerable<JewelryStore.Models.Jewelry>
+
+@if (Model == null || !Model.Any())
+{
+    <p style="color: #c0392b; font-weight: bold;">Нічого не знайдено.</p>
+}
+else
+{
+    <h3>Знайдено: @Model.Count() прикрас</h3>
+    <table class="jewelry-table">
+        <tr>
+            <th>Назва</th>
+            <th>Матеріал</th>
+            <th>Ціна (грн)</th>
+            <th>Категорія</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Material</td>
+                <td>@item.Price</td>
+                <td>@(item.Category != null ? item.Category.Name : "—")</td>
+            </tr>
+        }
+    </table>
+}
