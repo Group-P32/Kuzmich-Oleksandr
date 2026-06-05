@@ -2,17 +2,51 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title — Ювелірний магазин</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <nav>
+
+    <div id="header">
+        <h1>Ювелірний магазин Кузьміч</h1>
+        <p>Вишукані прикраси з золота, срібла та коштовного каміння</p>
+    </div>
+
+    <nav id="nav">
         <ul class="menu">
             <li>@Html.ActionLink("Головна", "Index", "Home")</li>
             <li>@Html.ActionLink("Каталог прикрас", "Index", "Jewelry")</li>
             <li>@Html.ActionLink("Категорії", "Index", "Category")</li>
         </ul>
     </nav>
-    @RenderBody()
+
+    <div id="wrapper">
+
+        <div id="side">
+            <h3>Категорії</h3>
+            <ul>
+                <li>@Html.ActionLink("Каблучки", "Index", "Jewelry", new { category = 1 }, null)</li>
+                <li>@Html.ActionLink("Намисто", "Index", "Jewelry", new { category = 2 }, null)</li>
+                <li>@Html.ActionLink("Браслети", "Index", "Jewelry", new { category = 3 }, null)</li>
+                <li>@Html.ActionLink("Сережки", "Index", "Jewelry", new { category = 4 }, null)</li>
+            </ul>
+            <h3>Матеріали</h3>
+            <ul>
+                <li>@Html.ActionLink("Золото", "Index", "Jewelry", new { material = "Золото" }, null)</li>
+                <li>@Html.ActionLink("Срібло", "Index", "Jewelry", new { material = "Срібло" }, null)</li>
+                <li>@Html.ActionLink("Перли", "Index", "Jewelry", new { material = "Перли" }, null)</li>
+            </ul>
+        </div>
+
+        <div id="con">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <footer id="footer">
+        <p>© @DateTime.Now.Year Ювелірний магазин Кузьміч. Всі права захищені.</p>
+    </footer>
+
 </body>
 </html>
