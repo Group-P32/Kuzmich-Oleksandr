@@ -344,3 +344,115 @@ select {
     .jewelry-table tr:hover td {
         background: #fff3e0;
     }
+
+/* Auth форми */
+.auth-form {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #2a2a2a;
+    border: 1px solid #c8a165;
+    border-radius: 16px;
+    padding: 45px 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,161,101,0.1);
+}
+
+    .auth-form h4 {
+        color: #c8a165;
+        margin-bottom: 25px;
+        font-size: 13px;
+        font-weight: normal;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .auth-form hr {
+        border: none;
+        border-top: 1px solid #1a1a1a;
+        margin-bottom: 30px;
+    }
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+    .form-group label {
+        display: block;
+        color: #c8a165;
+        margin-bottom: 8px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #111;
+    color: #f0d080;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+    .form-input:focus {
+        outline: none;
+        border-color: #c8a165;
+        background: #141414;
+        box-shadow: 0 0 0 3px rgba(200,161,101,0.08);
+    }
+
+.auth-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #8b6914, #c8a165);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 8px;
+}
+
+    .auth-btn:hover {
+        background: linear-gradient(135deg, #c8a165, #f0d080);
+        box-shadow: 0 4px 20px rgba(200,161,101,0.3);
+        transform: translateY(-1px);
+    }
+
+.auth-form > h2 {
+    color: #f0d080;
+}
+
+.auth-form p {
+    margin-top: 22px;
+    font-size: 12px;
+    color: #444;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+    .auth-form p a {
+        color: #c8a165;
+        text-decoration: none;
+    }
+
+        .auth-form p a:hover {
+            color: #f0d080;
+        }
+
+.text-danger {
+    color: #c0392b;
+    font-size: 11px;
+    margin-top: 5px;
+    display: block;
+    letter-spacing: 0.5px;
+}

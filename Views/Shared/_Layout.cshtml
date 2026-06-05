@@ -17,6 +17,15 @@
             <li>@Html.ActionLink(@Resources.Resource.NavCatalog, "Index", "Jewelry")</li>
             <li>@Html.ActionLink(@Resources.Resource.NavCategories, "Index", "Category")</li>
             <li>@Html.ActionLink("Чат", "Index", "Chat")</li>
+            @if (Request.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("Вихід (" + User.Identity.Name + ")", "Logout", "Account")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Вхід", "Login", "Account")</li>
+                <li>@Html.ActionLink("Реєстрація", "Register", "Account")</li>
+            }
         </ul>
         <div class="lang-switcher">
             @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post))
