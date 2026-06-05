@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using JewelryStore.Models;
+
 namespace Kuzmich_JewelryStore.Controllers
 {
     public class JewelryController : Controller
@@ -13,8 +14,10 @@ namespace Kuzmich_JewelryStore.Controllers
         private JewelryContext db = new JewelryContext();
 
         // GET: Jewelry
-        public ActionResult Index(int? category, string material)
+        public ActionResult Index(int? category, string material, int page = 1)
         {
+            int pageSize = 3;
+
             IQueryable<Jewelry> jewelries = db.Jewelries.Include(j => j.Category);
 
             if (category != null && category != 0)
@@ -27,19 +30,37 @@ namespace Kuzmich_JewelryStore.Controllers
                 jewelries = jewelries.Where(j => j.Material == material);
             }
 
+            int totalItems = jewelries.Count();
+
+            var jewelriesPerPage = jewelries
+                .OrderBy(j => j.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
             List<Category> categories = db.Categories.ToList();
             categories.Insert(0, new Category { Name = "Всі", Id = 0 });
 
-            JewelryListViewModel viewModel = new JewelryListViewModel
+            JewelryIndexViewModel viewModel = new JewelryIndexViewModel
             {
-                Jewelries = jewelries.ToList(),
-                Categories = new SelectList(categories, "Id", "Name"),
-                Materials = new SelectList(
-    new[] { "Всі" }.Concat(
-        db.Jewelries.Select(j => j.Material).Distinct().ToList()
-    )
-)
+                Jewelries = jewelriesPerPage,
+                PageInfo = new PageInfo
+                {
+                    PageNumber = page,
+                    PageSize = pageSize,
+                    TotalItems = totalItems
+                },
+                CategoryId = category,
+                Material = material
             };
+
+            ViewBag.CategoryId = new SelectList(categories, "Id", "Name", category);
+            ViewBag.Materials = new SelectList(
+                new[] { "Всі" }.Concat(
+                    db.Jewelries.Select(j => j.Material).Distinct().ToList()
+                ),
+                material
+            );
 
             return View(viewModel);
         }

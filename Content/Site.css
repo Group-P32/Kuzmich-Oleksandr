@@ -99,3 +99,83 @@ input[type="submit"] {
         background-color: #f0c040;
         color: #2c2c2c;
     }
+
+/* Пагінація */
+.pagination-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-group a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 2px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #444;
+}
+
+    .btn-group a:hover {
+        background-color: #f0c040;
+        color: #2c2c2c;
+        text-decoration: none;
+    }
+
+    .btn-group a.selected {
+        background-color: #f0c040;
+        color: #2c2c2c;
+        border-color: #f0c040;
+    }
+
+/* Фільтр */
+form div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+form label {
+    font-weight: bold;
+    color: #2c2c2c;
+}
+
+select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #2c2c2c;
+}
+
+/* Таблиця прикрас */
+.jewelry-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+    .jewelry-table th {
+        background-color: #2c2c2c;
+        color: #f0c040;
+        padding: 10px 15px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .jewelry-table td {
+        padding: 8px 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .jewelry-table tr:nth-child(even) {
+        background-color: #ececec;
+    }
+
+    .jewelry-table tr:hover {
+        background-color: #f5f0e0;
+    }

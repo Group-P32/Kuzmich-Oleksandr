@@ -1,4 +1,5 @@
-﻿@model JewelryStore.Models.JewelryListViewModel
+﻿@model JewelryStore.Models.JewelryIndexViewModel
+@using Kuzmich_JewelryStore.Helpers
 @{
     ViewBag.Title = "Каталог прикрас";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,18 +8,17 @@
 <h2>Каталог прикрас</h2>
 
 <p>
-    @Html.ActionLink("Додати прикрасу", "Create")
-    &nbsp;|&nbsp;
+    @Html.ActionLink("Додати прикрасу", "Create") |
     @Html.ActionLink("Категорії", "Index", "Category")
 </p>
 
 <form method="get">
     <div>
         <label>Категорія:</label>
-        @Html.DropDownList("category", Model.Categories as SelectList)
+        @Html.DropDownList("category", ViewBag.CategoryId as SelectList)
 
         <label>Матеріал:</label>
-        @Html.DropDownList("material", Model.Materials as SelectList)
+        @Html.DropDownList("material", ViewBag.Materials as SelectList)
 
         <input type="submit" value="Фільтрувати" />
     </div>
@@ -50,3 +50,12 @@
         </tr>
     }
 </table>
+
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new {
+        page = x,
+        category = Model.CategoryId,
+        material = Model.Material
+    }))
+</div>
