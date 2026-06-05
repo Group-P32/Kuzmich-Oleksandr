@@ -16,6 +16,7 @@
             <li>@Html.ActionLink(@Resources.Resource.NavHome, "Index", "Home")</li>
             <li>@Html.ActionLink(@Resources.Resource.NavCatalog, "Index", "Jewelry")</li>
             <li>@Html.ActionLink(@Resources.Resource.NavCategories, "Index", "Category")</li>
+            <li>@Html.ActionLink("Чат", "Index", "Chat")</li>
         </ul>
         <div class="lang-switcher">
             @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post))

@@ -1,0 +1,253 @@
+﻿@model JewelryStore.Models.ChatModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Чат";
+}
+
+<style>
+    #chat-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding: 8px 12px;
+        background: #2c1810;
+        border: 1px solid #c8a165;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    #Username {
+        font-weight: bold;
+        color: #f0d080;
+        font-size: 15px;
+    }
+
+    #LastRefresh {
+        color: #a08040;
+        font-size: 12px;
+    }
+
+    #Error {
+        color: #e74c3c;
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    #loginBlock {
+        background: #2c1810;
+        border: 2px solid #c8a165;
+        border-radius: 10px;
+        padding: 50px;
+        text-align: center;
+        max-width: 480px;
+        margin: 40px auto;
+        box-shadow: 0 4px 20px rgba(200,161,101,0.15);
+    }
+
+        #loginBlock p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #f0d080;
+        }
+
+    #txtUserName {
+        padding: 10px 15px;
+        font-size: 15px;
+        border: 1px solid #c8a165;
+        border-radius: 4px;
+        background: #1a0a00;
+        color: #f0d080;
+        width: 230px;
+        margin-right: 10px;
+        font-family: Georgia, serif;
+    }
+
+        #txtUserName:focus {
+            outline: none;
+            border-color: #f0d080;
+        }
+
+    #btnLogin {
+        padding: 10px 22px;
+        background: #8b6914;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 15px;
+        cursor: pointer;
+        font-family: Georgia, serif;
+    }
+
+        #btnLogin:hover {
+            background: #c8a165;
+            color: #1a0a00;
+        }
+
+    #RefreshArea {
+        display: flex;
+        border: 2px solid #c8a165;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 380px;
+        margin-bottom: 15px;
+        background: #1a0a00;
+    }
+
+    #Users {
+        width: 175px;
+        background: #2c1810;
+        border-right: 2px solid #c8a165;
+        padding: 12px;
+        overflow-y: auto;
+    }
+
+        #Users p {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #f0d080;
+        }
+
+        #Users b {
+            color: #c8a165;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #c8a165;
+            padding-bottom: 6px;
+        }
+
+    #Messages {
+        flex: 1;
+        padding: 12px;
+        overflow-y: auto;
+        background: #1a0a00;
+    }
+
+        #Messages p {
+            margin-bottom: 8px;
+            padding: 7px 12px;
+            background: #2c1810;
+            border-left: 3px solid #8b6914;
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+            #Messages p small {
+                color: #a08040;
+                font-size: 11px;
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            #Messages p b {
+                color: #f0d080;
+            }
+
+    .serverMes {
+        color: #c8a165;
+        font-style: italic;
+    }
+    #Messages p {
+        color: #f0d080;
+    }
+
+    #chat-info {
+        color: #f0d080;
+    }
+
+    #Users p {
+        color: #f0d080;
+    }
+    #inputForm {
+        background: #2c1810;
+        border: 2px solid #c8a165;
+        border-radius: 8px;
+        padding: 10px 15px;
+    }
+
+        #inputForm table {
+            width: 100%;
+        }
+
+        #inputForm td:first-child {
+            width: 100%;
+            padding-right: 10px;
+        }
+
+    #txtMessage {
+        width: 100%;
+        padding: 9px;
+        background: #1a0a00;
+        color: #f0d080;
+        border: 1px solid #c8a165;
+        border-radius: 4px;
+        font-size: 14px;
+        resize: none;
+        font-family: Georgia, serif;
+    }
+
+        #txtMessage:focus {
+            outline: none;
+            border-color: #f0d080;
+        }
+
+    #btnMessage, #btnLogOff {
+        width: 110px;
+        padding: 9px;
+        border: none;
+        border-radius: 4px;
+        font-size: 13px;
+        cursor: pointer;
+        margin-bottom: 6px;
+        font-family: Georgia, serif;
+        display: block;
+    }
+
+    #btnMessage {
+        background: #8b6914;
+        color: #fff;
+    }
+
+        #btnMessage:hover {
+            background: #c8a165;
+            color: #1a0a00;
+        }
+
+    #btnLogOff {
+        background: #1a0a00;
+        color: #c8a165;
+        border: 1px solid #c8a165;
+    }
+
+        #btnLogOff:hover {
+            background: #3a1a00;
+        }
+</style>
+
+<div id="chat-info">
+    <span>💬 В чаті: <span id="Username"></span></span>
+    <span id="LastRefresh"></span>
+</div>
+
+<div id="container">
+    <div id="loginBlock">
+        <p>💎 Введіть своє ім'я для входу в чат:</p>
+        <input type="text" id="txtUserName" placeholder="Ваше ім'я..." />
+        <button id="btnLogin">Увійти</button>
+    </div>
+</div>
+
+<div id="Error"></div>
+
+@Ajax.ActionLink("Login", "Index", "Chat", new { user = "" },
+    new AjaxOptions { UpdateTargetId = "container", OnFailure = "LoginOnFailure", OnSuccess = "LoginOnSuccess" },
+    new { @id = "LoginButton", @style = "visibility:hidden;" })
+
+@section Scripts {
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/chat.js"></script>
+}

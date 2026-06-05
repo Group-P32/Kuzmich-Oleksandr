@@ -98,6 +98,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -107,6 +108,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JewelryController.cs" />
     <Compile Include="Filters\CultureAttribute.cs" />
@@ -115,6 +117,7 @@
     </Compile>
     <Compile Include="Helpers\PagingHelpers.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ChatModels.cs" />
     <Compile Include="Models\Jewelry.cs" />
     <Compile Include="Models\JewelryContext.cs" />
     <Compile Include="Models\JewelryDbInitializer.cs" />
@@ -156,6 +159,9 @@
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Home\_JewelrySearchResult.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Chat\ChatRoom.cshtml" />
+    <Content Include="Views\Chat\History.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
