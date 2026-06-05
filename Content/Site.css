@@ -258,3 +258,25 @@ select {
     #footer p {
         margin: 0;
     }
+
+/* Перемикач мов */
+.lang-switcher {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+    .lang-switcher select {
+        padding: 4px 8px;
+        font-size: 14px;
+        border: 1px solid #c8a165;
+        border-radius: 4px;
+        background-color: #fff8f0;
+        color: #4a3000;
+        cursor: pointer;
+    }
+
+        .lang-switcher select:focus {
+            outline: none;
+            border-color: #8b6914;
+        }

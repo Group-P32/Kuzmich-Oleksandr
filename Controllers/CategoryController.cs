@@ -11,6 +11,7 @@ using JewelryStore.Models;
 
 namespace Kuzmich_JewelryStore.Controllers
 {
+    [Kuzmich_JewelryStore.Filters.Culture]
     public class CategoryController : Controller
     {
         private JewelryContext db = new JewelryContext();

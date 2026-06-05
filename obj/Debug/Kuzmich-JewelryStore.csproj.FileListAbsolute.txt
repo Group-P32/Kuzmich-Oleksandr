@@ -71,3 +71,11 @@ C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.dll
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.pdb
 C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.csprojAssemblyReference.cache
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\bin\de\Kuzmich-JewelryStore.resources.dll
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\bin\en\Kuzmich-JewelryStore.resources.dll
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich_JewelryStore.Resources.Resource.resources
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich_JewelryStore.Resources.Resource.de.resources
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich_JewelryStore.Resources.Resource.en.resources
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\Kuzmich-JewelryStore.csproj.GenerateResource.cache
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\de\Kuzmich-JewelryStore.resources.dll
+C:\Users\Radik\source\repos\Kuzmich-JewelryStore\Kuzmich-JewelryStore\obj\Debug\en\Kuzmich-JewelryStore.resources.dll

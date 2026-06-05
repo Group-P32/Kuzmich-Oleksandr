@@ -2,51 +2,57 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title — Ювелірний магазин</title>
+    <title>@ViewBag.Title — @Resources.Resource.SiteName</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
     <div id="header">
-        <h1>Ювелірний магазин Кузьміч</h1>
-        <p>Вишукані прикраси з золота, срібла та коштовного каміння</p>
+        <h1>@Resources.Resource.SiteName</h1>
+        <p>@Resources.Resource.SiteSlogan</p>
     </div>
 
     <nav id="nav">
         <ul class="menu">
-            <li>@Html.ActionLink("Головна", "Index", "Home")</li>
-            <li>@Html.ActionLink("Каталог прикрас", "Index", "Jewelry")</li>
-            <li>@Html.ActionLink("Категорії", "Index", "Category")</li>
+            <li>@Html.ActionLink(@Resources.Resource.NavHome, "Index", "Home")</li>
+            <li>@Html.ActionLink(@Resources.Resource.NavCatalog, "Index", "Jewelry")</li>
+            <li>@Html.ActionLink(@Resources.Resource.NavCategories, "Index", "Category")</li>
         </ul>
+        <div class="lang-switcher">
+            @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post))
+            {
+                <select name="lang" onchange="this.form.submit()">
+                    <option disabled selected>@Resources.Resource.ChooseLang</option>
+                    <option value="ua">🇺🇦 Українська</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
+            }
+        </div>
     </nav>
 
     <div id="wrapper">
-
         <div id="side">
-            <h3>Категорії</h3>
+            <h3>@Resources.Resource.SideCategories</h3>
             <ul>
-                <li>@Html.ActionLink("Каблучки", "Index", "Jewelry", new { category = 1 }, null)</li>
-                <li>@Html.ActionLink("Намисто", "Index", "Jewelry", new { category = 2 }, null)</li>
-                <li>@Html.ActionLink("Браслети", "Index", "Jewelry", new { category = 3 }, null)</li>
-                <li>@Html.ActionLink("Сережки", "Index", "Jewelry", new { category = 4 }, null)</li>
+                <li>@Html.ActionLink(@Resources.Resource.CatRings, "Index", "Jewelry", new { category = 1 }, null)</li>
+                <li>@Html.ActionLink(@Resources.Resource.CatNecklaces, "Index", "Jewelry", new { category = 2 }, null)</li>
+                <li>@Html.ActionLink(@Resources.Resource.CatBracelets, "Index", "Jewelry", new { category = 3 }, null)</li>
+                <li>@Html.ActionLink(@Resources.Resource.CatEarrings, "Index", "Jewelry", new { category = 4 }, null)</li>
             </ul>
-            <h3>Матеріали</h3>
+            <h3>@Resources.Resource.SideMaterials</h3>
             <ul>
-                <li>@Html.ActionLink("Золото", "Index", "Jewelry", new { material = "Золото" }, null)</li>
-                <li>@Html.ActionLink("Срібло", "Index", "Jewelry", new { material = "Срібло" }, null)</li>
-                <li>@Html.ActionLink("Перли", "Index", "Jewelry", new { material = "Перли" }, null)</li>
+                <li>@Html.ActionLink(@Resources.Resource.MatGold, "Index", "Jewelry", new { material = "Золото" }, null)</li>
+                <li>@Html.ActionLink(@Resources.Resource.MatSilver, "Index", "Jewelry", new { material = "Срібло" }, null)</li>
+                <li>@Html.ActionLink(@Resources.Resource.MatPearl, "Index", "Jewelry", new { material = "Перли" }, null)</li>
             </ul>
         </div>
-
         <div id="con">
             @RenderBody()
         </div>
-
     </div>
 
     <footer id="footer">
-        <p>© @DateTime.Now.Year Ювелірний магазин Кузьміч. Всі права захищені.</p>
+        <p>© @DateTime.Now.Year @Resources.Resource.SiteName. @Resources.Resource.FooterRights.</p>
     </footer>
-
 </body>
 </html>

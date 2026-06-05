@@ -4,27 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JewelryStore.Models;
+using Kuzmich_JewelryStore.Filters;
 
 namespace Kuzmich_JewelryStore.Controllers
 {
+    [Culture]
     public class HomeController : Controller
     {
-        // Створюємо контекст даних
         JewelryContext db = new JewelryContext();
 
         // GET: /Home/
         public ActionResult Index()
         {
-            // Отримуємо всі прикраси з бази даних
             IEnumerable<Jewelry> jewelries = db.Jewelries;
-            // Передаємо в представлення
             ViewBag.Jewelries = jewelries;
             return View();
         }
 
-        // Увага! Для перегляду форми покупки треба спочатку
-        // перейти на головну сторінку: localhost:XXXXX/Home
-        // і натиснути "Оформити покупку" навпроти товару
         [HttpGet]
         public ActionResult Buy(int? id)
         {
@@ -41,6 +37,34 @@ namespace Kuzmich_JewelryStore.Controllers
             db.Purchases.Add(purchase);
             db.SaveChanges();
             return "Дякуємо, " + purchase.Person + ", за покупку!";
+        }
+
+        // Зміна мови через кукі
+        public ActionResult ChangeCulture(string lang)
+        {
+            string returnUrl = Request.UrlReferrer != null
+                ? Request.UrlReferrer.AbsolutePath
+                : "/";
+
+            List<string> cultures = new List<string>() { "ua", "en", "de" };
+            if (!cultures.Contains(lang))
+            {
+                lang = "ua";
+            }
+
+            HttpCookie cookie = Request.Cookies["lang"];
+            if (cookie != null)
+                cookie.Value = lang;
+            else
+            {
+                cookie = new HttpCookie("lang");
+                cookie.HttpOnly = false;
+                cookie.Value = lang;
+                cookie.Expires = DateTime.Now.AddYears(1);
+            }
+
+            Response.Cookies.Add(cookie);
+            return Redirect(returnUrl);
         }
     }
 }
